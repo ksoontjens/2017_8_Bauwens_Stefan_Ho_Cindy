@@ -7,6 +7,7 @@ package hellotvxlet;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Timer;
 import org.bluray.ui.event.HRcEvent;
 import org.dvb.event.UserEvent;
 import org.dvb.event.UserEventListener;
@@ -29,6 +30,11 @@ public class ChessBoard extends HComponent implements UserEventListener {
     public ChessBoard()
     {
         this.setBounds(0,0,720,576); // full screen
+        
+        MyTimerTask objMyTimerTask = new MyTimerTask();
+        Timer timer = new Timer();
+        objMyTimerTask.setChessBoard(this);
+        timer.scheduleAtFixedRate(objMyTimerTask, 0, 25); // timer runs every 25ms
     }
     
     int transformX(int x,int y,int z)
@@ -133,7 +139,12 @@ public class ChessBoard extends HComponent implements UserEventListener {
            if (e.getCode()==HRcEvent.VK_RIGHT) tim++;
            //if (e.getCode()==HRcEvent.VK_LEFT) tim--;
            
-           this.repaint();
+           //this.repaint();
        }
+    }
+    
+    public void drawBg(){
+        tim++;
+        this.repaint();
     }
 }

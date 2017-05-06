@@ -30,7 +30,7 @@ public class HelloTVXlet implements Xlet, HActionListener {
     }
 
     public void startXlet() {
-  
+        
     }
 
     public void pauseXlet() {
