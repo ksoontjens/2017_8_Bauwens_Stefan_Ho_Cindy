@@ -37,13 +37,13 @@ public class ChessBoard extends HComponent implements UserEventListener {
         timer.scheduleAtFixedRate(objMyTimerTask, 0, 25); // timer runs every 25ms
     }
     
-    int transformX(int x,int y,int z)
+    int transformX(int x,int y,int z) //this method converts 3D point to a projected 2D point (x)
     {
         double fz=z/10.0;
         double fx=x-360;
         return (int)(fx/fz)+360;
     }
-    int transformY(int x,int y,int z)
+    int transformY(int x,int y,int z) //this method converts 3D point to a projected 2D point (y)
     {
         double fz=z/10.0;
         double fy=y-280;
@@ -53,82 +53,85 @@ public class ChessBoard extends HComponent implements UserEventListener {
     {
         int hy[]=new int[81];
         int bx[]=new int[81];
+        
+        
         for (int z=5;z<81;z++)
         {
-            hy[z]=(int) ((int) (400 + 40 * Math.sin((z+tim) / 15.0)) - ( 40 * Math.sin((5 + tim) / 15.0)));
-            bx[z]=(int) (40 * Math.sin((z + tim) / 20.0));
+            hy[z]=(int) ((int) (400 + 40 * Math.sin((z+tim) / 15.0)) - ( 40 * Math.sin((5 + tim) / 15.0))); // makes the hills
+            bx[z]=(int) (40 * Math.sin((z + tim) / 20.0)); //makes the curves
         }
-        for (int z=79;z>=5;z--)
+        
+        for (int z=79;z>=5;z--) //this for-loop is used to draw every line of our road
         {
-               g.setColor(Color.GREEN);
+            g.setColor(Color.GREEN);
             int x[]=new int[5];
         
-        int y[]=new int[5];
-          x[0]=transformX(-2500,hy[z],z);
-        y[0]=transformY(-2500,hy[z],z);
- 
-        x[1]=transformX(2500,hy[z],z);
-        y[1]=transformY(2500,hy[z],z);
-        
-        x[2]=transformX(2500,hy[z+1],z+1);
-        y[2]=transformY(2500,hy[z+1],z+1);
- 
-        x[3]=transformX(-2500,hy[z+1],z+1);
-        y[3]=transformY(-2500,hy[z+1],z+1);   
-        
-        x[4]=transformX(-2500,hy[z],z);
-        y[4]=transformY(-2500,hy[z],z);   
-      
-        g.fillPolygon(x,y,5);
-            
-        g.setColor(Color.GRAY);
-    
-       
-        
-        x[0]=transformX(100+bx[z],hy[z],z);
-        y[0]=transformY(100+bx[z],hy[z],z);
- 
-        x[1]=transformX(620+bx[z],hy[z],z);
-        y[1]=transformY(620+bx[z],hy[z],z);
-        
-        x[2]=transformX(620+bx[z],hy[z+1],z+1);
-        y[2]=transformY(620+bx[z],hy[z+1],z+1);
- 
-        x[3]=transformX(100+bx[z],hy[z+1],z+1);
-        y[3]=transformY(100+bx[z],hy[z+1],z+1);   
-        
-        x[4]=transformX(100+bx[z],hy[z],z);
-        y[4]=transformY(100+bx[z],hy[z],z);   
-      
+            int y[]=new int[5];
+            x[0]=transformX(-2500,hy[z],z);
+            y[0]=transformY(-2500,hy[z],z);
 
-        g.fillPolygon(x,y,5);
-        
-     
-        
-        g.setColor(Color.WHITE);
-        if ((z+tim)%5==0)
-        {
-            for (int dx=5;dx<=510;dx+=100)
+            x[1]=transformX(2500,hy[z],z);
+            y[1]=transformY(2500,hy[z],z);
+
+            x[2]=transformX(2500,hy[z+1],z+1);
+            y[2]=transformY(2500,hy[z+1],z+1);
+
+            x[3]=transformX(-2500,hy[z+1],z+1);
+            y[3]=transformY(-2500,hy[z+1],z+1);   
+
+            x[4]=transformX(-2500,hy[z],z);
+            y[4]=transformY(-2500,hy[z],z);   
+
+            g.fillPolygon(x,y,5);
+
+            g.setColor(Color.GRAY);
+
+
+
+            x[0]=transformX(100+bx[z],hy[z],z);
+            y[0]=transformY(100+bx[z],hy[z],z);
+
+            x[1]=transformX(620+bx[z],hy[z],z);
+            y[1]=transformY(620+bx[z],hy[z],z);
+
+            x[2]=transformX(620+bx[z],hy[z+1],z+1);
+            y[2]=transformY(620+bx[z],hy[z+1],z+1);
+
+            x[3]=transformX(100+bx[z],hy[z+1],z+1);
+            y[3]=transformY(100+bx[z],hy[z+1],z+1);   
+
+            x[4]=transformX(100+bx[z],hy[z],z);
+            y[4]=transformY(100+bx[z],hy[z],z);   
+
+
+            g.fillPolygon(x,y,5);
+
+
+
+            g.setColor(Color.WHITE);
+            if ((z+tim)%5==0) //modulo 5 to create the vertical spaces between the white lines
             {
-        x[0]=transformX(100+dx+bx[z],hy[z],z);
-        y[0]=transformY(100+dx+bx[z],hy[z],z);
- 
-        x[1]=transformX(110+dx+bx[z],hy[z],z);
-        y[1]=transformY(110+dx+bx[z],hy[z],z);
-        
-        x[2]=transformX(110+dx+bx[z],hy[z+1],z+1);
-        y[2]=transformY(110+dx+bx[z],hy[z+1],z+1);
- 
-        x[3]=transformX(100+dx+bx[z],hy[z+1],z+1);
-        y[3]=transformY(100+dx+bx[z],hy[z+1],z+1);   
-        
-        x[4]=transformX(100+dx+bx[z],hy[z],z);
-        y[4]=transformY(100+dx+bx[z],hy[z],z);   
-      
-   
-        g.fillPolygon(x,y,5);
+                for (int dx=5;dx<=510;dx+=100)
+                {
+                    x[0]=transformX(100+dx+bx[z],hy[z],z);
+                    y[0]=transformY(100+dx+bx[z],hy[z],z);
+
+                    x[1]=transformX(110+dx+bx[z],hy[z],z);
+                    y[1]=transformY(110+dx+bx[z],hy[z],z);
+
+                    x[2]=transformX(110+dx+bx[z],hy[z+1],z+1);
+                    y[2]=transformY(110+dx+bx[z],hy[z+1],z+1);
+
+                    x[3]=transformX(100+dx+bx[z],hy[z+1],z+1);
+                    y[3]=transformY(100+dx+bx[z],hy[z+1],z+1);   
+
+                    x[4]=transformX(100+dx+bx[z],hy[z],z);
+                    y[4]=transformY(100+dx+bx[z],hy[z],z);   
+
+
+                    g.fillPolygon(x,y,5);
+                }
             }
-        }
         }
         
     }
