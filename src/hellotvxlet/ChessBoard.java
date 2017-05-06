@@ -52,7 +52,7 @@ public class ChessBoard extends HComponent implements UserEventListener {
         for (int z=5;z<81;z++)
         {
             hy[z]=(int) ((int) (400 + 40 * Math.sin((z+tim) / 15.0)) - ( 40 * Math.sin((5 + tim) / 15.0))); // makes the hills
-            bx[z]=(int) (40 * Math.sin((z + tim) / 20.0)); //makes the curves
+            //bx[z]=(int) (40 * Math.sin((z + tim) / 20.0)); //makes the curves
         }
         
         for (int z=79;z>=5;z--) //this for-loop is used to draw every line of our road
@@ -105,7 +105,7 @@ public class ChessBoard extends HComponent implements UserEventListener {
             g.setColor(Color.WHITE);
             if ((z+tim)%5==0) //modulo 5 to create the vertical spaces between the white lines
             {
-                for (int dx=5;dx<=510;dx+=100)
+                for (int dx=5;dx<=510;dx+=100) //for loop to create the 6 stripes horizontally
                 {
                     x[0]=transformX(100+dx+bx[z],hy[z],z);
                     y[0]=transformY(100+dx+bx[z],hy[z],z);
@@ -133,10 +133,9 @@ public class ChessBoard extends HComponent implements UserEventListener {
     public void userEventReceived(UserEvent e) {
        if (e.getType()==HRcEvent.KEY_PRESSED)
        {
-           if (e.getCode()==HRcEvent.VK_RIGHT) tim++;
+           if (e.getCode()==HRcEvent.VK_RIGHT) tim++; //maybe use thread?
            //if (e.getCode()==HRcEvent.VK_LEFT) tim--;
-           
-           this.repaint();
+            this.repaint();
        }
     }
 }
