@@ -27,9 +27,13 @@ public class ChessBoard extends HComponent implements UserEventListener {
     int cury=0;
     public int tim=0;
     //boolean stopCurve = false;
-    int multiplier = 200;
+    int multiplier = 0;
     int speed = 50;
-    int addToX = 50;
+    int addToX = 0;
+    boolean turnRight = true;
+    boolean isTurning = false;
+    
+    int[] map = {1,-1,1,-1,-1,1,1,-1,1,-1,-1,1,1,-1,1,-1,0};
     
     public ChessBoard()
     {
@@ -63,8 +67,8 @@ public class ChessBoard extends HComponent implements UserEventListener {
             hy[z]=(int) ((int) (400 + 40 * Math.sin((z+tim) / 15.0)) - ( 40 * Math.sin((5 + tim) / 15.0))); // makes the hills
             //bx[z]=(int) (40 * Math.sin((z + tim) / 20.0)); //makes the curves
             //if (!stopCurve)
-            //{                           
-            if ((z+tim) >= 100 && (z+tim) <= 302 && multiplier>0)
+                         
+            /*if ((z+tim) >= 100 && (z+tim) <= 302 && multiplier>0)
             {
                 multiplier --;
             }
@@ -72,7 +76,17 @@ public class ChessBoard extends HComponent implements UserEventListener {
             if ((z+tim)>302 && multiplier<400)
             {
                 multiplier ++;
-                addToX =(int)-(multiplier/20.0);
+                addToX =-multiplier/2;
+                //addToX = -0.25;
+            }*/
+            
+            for (int i=0; i < map.length;i++)
+            {
+                if ((z+tim) >= (i*25) && (z+tim)< (i+1)*25)
+                {
+                    multiplier += map[i];
+                    //addToX = -multiplier/4;
+                }
             }
 
 
@@ -87,19 +101,19 @@ public class ChessBoard extends HComponent implements UserEventListener {
             int x[]=new int[5];
         
             int y[]=new int[5];
-            x[0]=transformX(-2500,hy[z],z)+addToX;
+            x[0]=transformX(-2500+addToX,hy[z],z);
             y[0]=transformY(-2500,hy[z],z);
 
-            x[1]=transformX(2500,hy[z],z)+addToX;
+            x[1]=transformX(2500+addToX,hy[z],z);
             y[1]=transformY(2500,hy[z],z);
 
-            x[2]=transformX(2500,hy[z+1],z+1)+addToX;
+            x[2]=transformX(2500+addToX,hy[z+1],z+1);
             y[2]=transformY(2500,hy[z+1],z+1);
 
-            x[3]=transformX(-2500,hy[z+1],z+1)+addToX;
+            x[3]=transformX(-2500+addToX,hy[z+1],z+1);
             y[3]=transformY(-2500,hy[z+1],z+1);   
 
-            x[4]=transformX(-2500,hy[z],z)+addToX;
+            x[4]=transformX(-2500+addToX,hy[z],z);
             y[4]=transformY(-2500,hy[z],z);   
 
             g.fillPolygon(x,y,5);
@@ -108,19 +122,19 @@ public class ChessBoard extends HComponent implements UserEventListener {
 
 
 
-            x[0]=transformX(100+bx[z],hy[z],z)+addToX;
+            x[0]=transformX(100+bx[z]+addToX,hy[z],z);
             y[0]=transformY(100+bx[z],hy[z],z);
 
-            x[1]=transformX(620+bx[z],hy[z],z)+addToX;
+            x[1]=transformX(620+bx[z]+addToX,hy[z],z);
             y[1]=transformY(620+bx[z],hy[z],z);
 
-            x[2]=transformX(620+bx[z],hy[z+1],z+1)+addToX;
+            x[2]=transformX(620+bx[z]+addToX,hy[z+1],z+1);
             y[2]=transformY(620+bx[z],hy[z+1],z+1);
 
-            x[3]=transformX(100+bx[z],hy[z+1],z+1)+addToX;
+            x[3]=transformX(100+bx[z]+addToX,hy[z+1],z+1);
             y[3]=transformY(100+bx[z],hy[z+1],z+1);   
 
-            x[4]=transformX(100+bx[z],hy[z],z)+addToX;
+            x[4]=transformX(100+bx[z]+addToX,hy[z],z);
             y[4]=transformY(100+bx[z],hy[z],z);   
 
 
@@ -133,19 +147,19 @@ public class ChessBoard extends HComponent implements UserEventListener {
             {
                 for (int dx=5;dx<=510;dx+=100) //for loop to create the 6 stripes horizontally
                 {
-                    x[0]=transformX(100+dx+bx[z],hy[z],z)+addToX;
+                    x[0]=transformX(100+dx+bx[z]+addToX,hy[z],z);
                     y[0]=transformY(100+dx+bx[z],hy[z],z);
 
-                    x[1]=transformX(110+dx+bx[z],hy[z],z)+addToX;
+                    x[1]=transformX(110+dx+bx[z]+addToX,hy[z],z);
                     y[1]=transformY(110+dx+bx[z],hy[z],z);
 
-                    x[2]=transformX(110+dx+bx[z],hy[z+1],z+1)+addToX;
+                    x[2]=transformX(110+dx+bx[z]+addToX,hy[z+1],z+1);
                     y[2]=transformY(110+dx+bx[z],hy[z+1],z+1);
 
-                    x[3]=transformX(100+dx+bx[z],hy[z+1],z+1)+addToX;
+                    x[3]=transformX(100+dx+bx[z]+addToX,hy[z+1],z+1);
                     y[3]=transformY(100+dx+bx[z],hy[z+1],z+1);   
 
-                    x[4]=transformX(100+dx+bx[z],hy[z],z)+addToX;
+                    x[4]=transformX(100+dx+bx[z]+addToX,hy[z],z);
                     y[4]=transformY(100+dx+bx[z],hy[z],z);   
 
 
@@ -159,8 +173,16 @@ public class ChessBoard extends HComponent implements UserEventListener {
     public void userEventReceived(UserEvent e) {
        if (e.getType()==HRcEvent.KEY_PRESSED)
        {
-           if (e.getCode()==HRcEvent.VK_RIGHT) addToX+=50; 
-           if (e.getCode()==HRcEvent.VK_LEFT) addToX-=50;
+           if (e.getCode()==HRcEvent.VK_RIGHT)
+           {
+               /*addToX-=10*/ turnRight = true; 
+               isTurning = true;         
+           }
+           if (e.getCode()==HRcEvent.VK_LEFT) 
+           {
+               turnRight = false;//addToX+=10;
+               isTurning = true;
+           }
            
            //this.repaint();
        }
@@ -168,6 +190,19 @@ public class ChessBoard extends HComponent implements UserEventListener {
     
     public void drawBg(){
         tim++;
+        if (isTurning)
+        {
+            if (turnRight)
+            {
+                addToX-=10;
+            }
+            else
+            {
+                addToX+=10;
+            } 
+            isTurning = false;
+        }
+
         this.repaint();
     }
 }
