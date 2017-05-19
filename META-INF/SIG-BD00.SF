@@ -1,10 +1,10 @@
 Signature-Version: 1.0
 Created-By: 1.6.0_16 (Sun Microsystems Inc.)
 BDJ-Signature-Version: 1.0
-SHA1-Digest-Manifest: 8sqHQO1bKnU61Fsh3FMV6f8CALY=
+SHA1-Digest-Manifest: E93KEfaCpHh7mdg6JBTa0QVzmdo=
 
 Name: hellotvxlet/HelloTVXlet.class
-SHA1-Digest: JsH+XNSAtY50meYOzy8J8Esz/Fk=
+SHA1-Digest: BsAkGd4rwK3idLteuTOHQMmSgKA=
 
 Name: hellotvxlet/HelloTVXlet$1.class
 SHA1-Digest: jL4rl+dtvgbj4VErj8qjkXfGCe4=
@@ -12,9 +12,18 @@ SHA1-Digest: jL4rl+dtvgbj4VErj8qjkXfGCe4=
 Name: hellotvxlet/ChessBoard.class
 SHA1-Digest: ONpTRYd9PNySn9418ttgbjLiSpA=
 
+Name: blueCar-middle.png
+SHA1-Digest: XEZWVpPco78cgFXukGxQB9tHVRc=
+
 Name: hellotvxlet/bluray.HelloTVXlet.perm
 SHA1-Digest: 84ZO/rYCyy0JStmaLbg1GDVEFhQ=
 
 Name: hellotvxlet/MyTimerTask.class
-SHA1-Digest: g1r1xHgCG6BJjrPKJ3xgaSH2E88=
+SHA1-Digest: YqnASQ7TpGm8VYuehBrA6O1hjEE=
+
+Name: hellotvxlet/Stopwatch.class
+SHA1-Digest: mTveSDHkP53mjxe7t8v/aSNnXcU=
+
+Name: hellotvxlet/Track.class
+SHA1-Digest: oxonoeVMqvXDJltYn1nRTgqSrF4=
 
