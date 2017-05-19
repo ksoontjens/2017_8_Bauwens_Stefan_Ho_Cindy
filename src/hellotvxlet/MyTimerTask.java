@@ -12,9 +12,9 @@ import java.util.TimerTask;
  */
 public class MyTimerTask extends TimerTask {
 
-    ChessBoard cb;
+    Track cb;
     
-    public void setChessBoard(ChessBoard cb)
+    public void setChessBoard(Track cb)
     {
         this.cb = cb;
     }

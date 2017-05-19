@@ -7,6 +7,8 @@ package hellotvxlet;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.MediaTracker;
 import java.util.Timer;
 import org.bluray.ui.event.HRcEvent;
 import org.dvb.event.UserEvent;
@@ -19,7 +21,7 @@ import org.havi.ui.HStaticText;
  *
  * @author student
  */
-public class ChessBoard extends HComponent implements UserEventListener {
+public class Track extends HComponent implements UserEventListener {
 
     int xoff=100;
     int yoff=100;
@@ -36,6 +38,14 @@ public class ChessBoard extends HComponent implements UserEventListener {
     
     int iterate = 0;
     int counter = 0;
+    int kcounter=0;
+    int xCoord = 10;
+    int yCoord = 10;
+    int carpos=200;
+    
+    Image bluecar = this.getToolkit().getImage("blueCar-middle.png");
+            
+    MediaTracker mtrack;
     
     //HStaticText tekstlabel;
     
@@ -43,14 +53,27 @@ public class ChessBoard extends HComponent implements UserEventListener {
                                                                 //+ is turn left
                                                                 //- is turn right
     
-    public ChessBoard()
+    public Track()
     {
         this.setBounds(0,0,720,576); // full screen
+        
+        mtrack = new MediaTracker(this);
+        mtrack.addImage(bluecar,0);
+        
+        try
+        {
+            mtrack.waitForAll();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.toString());
+        }
         
         MyTimerTask objMyTimerTask = new MyTimerTask();
         Timer timer = new Timer();
         objMyTimerTask.setChessBoard(this);
         timer.scheduleAtFixedRate(objMyTimerTask, 0, speed); // timer runs every 25ms
+       
     }
     
     int transformX(int x,int y,int z) //this method converts 3D point to a projected 2D point (x)
@@ -198,6 +221,17 @@ public class ChessBoard extends HComponent implements UserEventListener {
             }
         }
         
+        int curposbegin=kcounter;
+        int curposend=curposbegin+75;
+        int relcarpos=carpos-curposbegin;
+        System.out.println("relcarpos="+curposbegin);
+        if ((carpos>curposbegin )&& (carpos < curposend))
+        {
+            int scalef=200; //int)(relcarpos/10.0);
+            System.out.println("scalef="+scalef);
+           // Image scaled=bluecar.getScaledInstance(scalef, scalef, Image.SCALE_SMOOTH);
+        g.drawImage(bluecar,transformX(120+bx[relcarpos],hy[relcarpos],relcarpos+5),transformY(120+bx[relcarpos],hy[relcarpos],relcarpos+5),null);
+        }
     }
 
     public void userEventReceived(UserEvent e) {
@@ -206,7 +240,8 @@ public class ChessBoard extends HComponent implements UserEventListener {
            if (e.getCode()==HRcEvent.VK_RIGHT)
            {
                /*addToX-=10*/ turnRight = true; 
-               isTurning = true;     
+               isTurning = true;    
+               xCoord++;
                
            }
            if (e.getCode()==HRcEvent.VK_LEFT) 
@@ -221,6 +256,7 @@ public class ChessBoard extends HComponent implements UserEventListener {
     
     public void drawBg(){
         tim++;
+        kcounter++;
         if (isTurning)
         {
             if (turnRight)

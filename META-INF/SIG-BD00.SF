@@ -1,20 +1,26 @@
 Signature-Version: 1.0
 Created-By: 1.6.0_16 (Sun Microsystems Inc.)
 BDJ-Signature-Version: 1.0
-SHA1-Digest-Manifest: Wi6MSeRQpulHz9+eYv+mkdEOeqc=
+SHA1-Digest-Manifest: XjHKNDKI4DiE+LtGZO7BmT6HxeI=
 
 Name: hellotvxlet/HelloTVXlet.class
-SHA1-Digest: JsH+XNSAtY50meYOzy8J8Esz/Fk=
+SHA1-Digest: x4IcmLqGQBwKp8QzKYhZSVbcP6E=
 
 Name: hellotvxlet/HelloTVXlet$1.class
 SHA1-Digest: jL4rl+dtvgbj4VErj8qjkXfGCe4=
 
 Name: hellotvxlet/ChessBoard.class
-SHA1-Digest: LJgfOz9MsIIGmQL4X2mnwmwUmg8=
+SHA1-Digest: TOTjfHzI40jAI6VsMKmxFx3y7XM=
+
+Name: blueCar-middle.png
+SHA1-Digest: XEZWVpPco78cgFXukGxQB9tHVRc=
 
 Name: hellotvxlet/bluray.HelloTVXlet.perm
 SHA1-Digest: 84ZO/rYCyy0JStmaLbg1GDVEFhQ=
 
 Name: hellotvxlet/MyTimerTask.class
-SHA1-Digest: g1r1xHgCG6BJjrPKJ3xgaSH2E88=
+SHA1-Digest: YqnASQ7TpGm8VYuehBrA6O1hjEE=
+
+Name: hellotvxlet/Track.class
+SHA1-Digest: u8nXi6JTiMXutHRpC8Y+t8ny614=
 

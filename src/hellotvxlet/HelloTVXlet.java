@@ -18,7 +18,7 @@ public class HelloTVXlet implements Xlet, HActionListener {
 
     public void initXlet(XletContext context) { //720 x 576
       scene=HSceneFactory.getInstance().getDefaultHScene();
-      ChessBoard bord=new ChessBoard();
+      Track bord=new Track();
          UserEventRepository repo=new UserEventRepository("repo");
          repo.addAllArrowKeys();
      EventManager man=EventManager.getInstance();
