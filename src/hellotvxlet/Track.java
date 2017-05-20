@@ -43,8 +43,7 @@ public class Track extends HComponent implements UserEventListener {
     int yCoord = 10;
     int carpos=200;
     
-    Image bluecar = this.getToolkit().getImage("blueCar-middle.png");
-            
+    Image bluecar = this.getToolkit().getImage("blueCar-middle.png");    
     MediaTracker mtrack;
     
     //HStaticText tekstlabel;
@@ -273,4 +272,5 @@ public class Track extends HComponent implements UserEventListener {
 
         this.repaint();
     }
+    
 }

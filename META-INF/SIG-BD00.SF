@@ -1,10 +1,10 @@
 Signature-Version: 1.0
 Created-By: 1.6.0_16 (Sun Microsystems Inc.)
 BDJ-Signature-Version: 1.0
-SHA1-Digest-Manifest: E93KEfaCpHh7mdg6JBTa0QVzmdo=
+SHA1-Digest-Manifest: lJvIx10CEX8VVLEHYtpL/EjBh/c=
 
 Name: hellotvxlet/HelloTVXlet.class
-SHA1-Digest: BsAkGd4rwK3idLteuTOHQMmSgKA=
+SHA1-Digest: KItIuwhn6aEVKhs4sfysJ3rxXsw=
 
 Name: hellotvxlet/HelloTVXlet$1.class
 SHA1-Digest: jL4rl+dtvgbj4VErj8qjkXfGCe4=
@@ -18,6 +18,9 @@ SHA1-Digest: XEZWVpPco78cgFXukGxQB9tHVRc=
 Name: hellotvxlet/bluray.HelloTVXlet.perm
 SHA1-Digest: 84ZO/rYCyy0JStmaLbg1GDVEFhQ=
 
+Name: hellotvxlet/Background.class
+SHA1-Digest: ROUdx0wWN4mzvCiItPvuVLfwn1Y=
+
 Name: hellotvxlet/MyTimerTask.class
 SHA1-Digest: YqnASQ7TpGm8VYuehBrA6O1hjEE=
 
@@ -25,5 +28,5 @@ Name: hellotvxlet/Stopwatch.class
 SHA1-Digest: mTveSDHkP53mjxe7t8v/aSNnXcU=
 
 Name: hellotvxlet/Track.class
-SHA1-Digest: oxonoeVMqvXDJltYn1nRTgqSrF4=
+SHA1-Digest: xjFFZK55UnHRbyOhpO7MF5Vkhsg=
 

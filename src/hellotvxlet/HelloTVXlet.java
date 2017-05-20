@@ -1,5 +1,7 @@
 package hellotvxlet;
 
+import java.awt.Image;
+import java.awt.MediaTracker;
 import java.awt.event.ActionEvent;
 import java.util.Timer;
 import javax.tv.xlet.*;
@@ -17,6 +19,8 @@ public class HelloTVXlet implements Xlet, HActionListener {
     private HStaticText minutesText;
     private HStaticText secondsText;
     private HStaticText msText;
+    
+
     public HelloTVXlet() {
         
     }
@@ -29,6 +33,8 @@ public class HelloTVXlet implements Xlet, HActionListener {
      EventManager man=EventManager.getInstance();
      man.addUserEventListener(bord, repo);
      
+     //Background bg = new Background(0,0,720,576);
+     
       minutesText = new HStaticText("0");
       secondsText = new HStaticText("00");
       msText = new HStaticText("00");
@@ -39,13 +45,16 @@ public class HelloTVXlet implements Xlet, HActionListener {
       msText.setLocation(520, -100);
       msText.setSize(300,250);
       
-     
       Stopwatch objStopwatch = new Stopwatch();
       Timer stopwatchTimer = new Timer();
       objStopwatch.setStopwatchText( minutesText, secondsText, msText);
       stopwatchTimer.scheduleAtFixedRate(objStopwatch, 0, 10); // every 10 ms
      
+      // have to add timer for background
+      //scene.add(bg);
+      
       scene.add(bord);
+      
       scene.add(minutesText);
       scene.add(secondsText);
       scene.add(msText);
@@ -69,5 +78,6 @@ public class HelloTVXlet implements Xlet, HActionListener {
     public void actionPerformed(ActionEvent arg0) {
        
         }
+
         
     }
