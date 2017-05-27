@@ -224,14 +224,15 @@ public class Track extends HComponent implements UserEventListener {
         int curposbegin=kcounter;
         int curposend=curposbegin+75;
         int relcarpos=carpos-curposbegin;
-        System.out.println("relcarpos="+curposbegin);
-        if ((carpos>curposbegin )&& (carpos < curposend))
-        {
+        relcarpos = 15;
+        System.out.println("relcarpos="+relcarpos);
+        /*if ((carpos>curposbegin )&& (carpos < curposend))
+        {*/
             int scalef=200; //int)(relcarpos/10.0);
             System.out.println("scalef="+scalef);
            // Image scaled=bluecar.getScaledInstance(scalef, scalef, Image.SCALE_SMOOTH);
-        g.drawImage(bluecar,transformX(120+bx[relcarpos],hy[relcarpos],relcarpos+5),transformY(120+bx[relcarpos],hy[relcarpos],relcarpos+5),null);
-        }
+            g.drawImage(bluecar,transformX(bx[relcarpos]+120,hy[relcarpos],relcarpos),transformY(bx[relcarpos]+120,hy[relcarpos],relcarpos),null);
+        //}
     }
 
     public void userEventReceived(UserEvent e) {
@@ -241,7 +242,7 @@ public class Track extends HComponent implements UserEventListener {
            {
                /*addToX-=10*/ turnRight = true; 
                isTurning = true;    
-               xCoord++;
+               //xCoord++;
                
            }
            if (e.getCode()==HRcEvent.VK_LEFT) 
