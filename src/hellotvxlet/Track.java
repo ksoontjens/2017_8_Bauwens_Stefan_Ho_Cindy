@@ -7,6 +7,7 @@ package hellotvxlet;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionListener;
 import java.awt.Image;
 import java.awt.MediaTracker;
 import java.util.Timer;
@@ -16,7 +17,6 @@ import org.dvb.event.UserEventListener;
 import org.dvb.event.UserEventRepository;
 import org.havi.ui.HComponent;
 import org.havi.ui.HStaticText;
-
 /**
  *
  * @author student
@@ -43,8 +43,7 @@ public class Track extends HComponent implements UserEventListener {
     int yCoord = 10;
     int carpos=200;
     
-    Image bluecar = this.getToolkit().getImage("blueCar-middle.png");
-            
+    Image bluecar = this.getToolkit().getImage("blueCar-middle.png");    
     MediaTracker mtrack;
     
     //HStaticText tekstlabel;
@@ -53,6 +52,7 @@ public class Track extends HComponent implements UserEventListener {
                                                                 //+ is turn left
                                                                 //- is turn right
     
+
     public Track()
     {
         this.setBounds(0,0,720,576); // full screen
@@ -88,6 +88,7 @@ public class Track extends HComponent implements UserEventListener {
         double fy=y-280;
         return (int)(fy/fz)+280;
     }    
+    
     public void paint(Graphics g)
     {
         int hy[]=new int[81];
@@ -98,7 +99,6 @@ public class Track extends HComponent implements UserEventListener {
         {
             hy[z]=(int) ((int) (400 + 40 * Math.sin((z+tim) / 15.0)) - ( 40 * Math.sin((5 + tim) / 15.0))); // makes the hills
             //bx[z]=(int) (40 * Math.sin((z + tim) / 20.0)); //makes the curves
-            //if (!stopCurve)
                          
             if ((z+tim) >= iterate* 100)// && (z+tim) <= iterate*302)
             {
@@ -111,41 +111,8 @@ public class Track extends HComponent implements UserEventListener {
                     System.out.println("Iteration:"+iterate+" Multiplier:"+multiplier);
                 }
             }
-            /*
-            if ((z+tim)>302 && multiplier<400)
-            {
-                multiplier ++;
-                addToX =-multiplier/2;
-                //addToX = -0.25;
-            }*/
-            
-            /*for (int i=0; i < map.length;i++)
-            {
-                if ((z+tim)/20.0 >= (i*50) && (z+tim)/20.0 < (i+1)*50)
-                {
-                    multiplier += map[i];
-                    //addToX = -multiplier/4;
-                }
-            }*/
-            //multiplier = 200;
-            /*if (multiplier>0)
-            {
-                multiplier--;
-            }*/
 
             bx[z]=(int) (multiplier * Math.sin((z)/20.0)); //makes the curves
-            /*if ((bx[z]/Math.abs(bx[z])) != (previousValue/Math.abs(previousValue)))
-            {
-                System.out.println(multiplier);
-                //multiplier = 2;
-                 //bx[z] = 0;
-            }*/
-            
-            //previousValue = bx[z];
-            //System.out.println(bx[z]);
-            //System.out.println(z+tim);
-           // bx[z]=(int) (multiplier *Math.sin((z+tim)));
-
         }
         
         for (int z=79;z>=5;z--) //this for-loop is used to draw every line of our road
@@ -231,7 +198,7 @@ public class Track extends HComponent implements UserEventListener {
             int scalef=200; //int)(relcarpos/10.0);
             System.out.println("scalef="+scalef);
            // Image scaled=bluecar.getScaledInstance(scalef, scalef, Image.SCALE_SMOOTH);
-            g.drawImage(bluecar,transformX(bx[relcarpos]+120,hy[relcarpos],relcarpos),transformY(bx[relcarpos]+120,hy[relcarpos],relcarpos),null);
+            g.drawImage(bluecar,transformX(bx[relcarpos]+220,hy[relcarpos],relcarpos),transformY(bx[relcarpos]+220,hy[relcarpos],relcarpos),null);
         //}
     }
 
@@ -262,7 +229,7 @@ public class Track extends HComponent implements UserEventListener {
         {
             if (turnRight)
             {
-                addToX-=10;
+               addToX-=10;
             }
             else
             {
@@ -273,4 +240,5 @@ public class Track extends HComponent implements UserEventListener {
 
         this.repaint();
     }
+    
 }

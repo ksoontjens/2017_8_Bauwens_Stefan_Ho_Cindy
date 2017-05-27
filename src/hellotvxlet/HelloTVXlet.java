@@ -1,17 +1,26 @@
 package hellotvxlet;
 
+import java.awt.Image;
+import java.awt.MediaTracker;
 import java.awt.event.ActionEvent;
+import java.util.Timer;
 import javax.tv.xlet.*;
 import org.dvb.event.EventManager;
 import org.dvb.event.UserEventRepository;
 import org.havi.ui.HScene;
 import org.havi.ui.HSceneFactory;
+import org.havi.ui.HStaticText;
 import org.havi.ui.event.HActionListener;
 
 
 public class HelloTVXlet implements Xlet, HActionListener {
 
     HScene scene;
+    private HStaticText minutesText;
+    private HStaticText secondsText;
+    private HStaticText msText;
+    
+
     public HelloTVXlet() {
         
     }
@@ -24,7 +33,32 @@ public class HelloTVXlet implements Xlet, HActionListener {
      EventManager man=EventManager.getInstance();
      man.addUserEventListener(bord, repo);
      
+     //Background bg = new Background(0,0,720,576);
+     
+      minutesText = new HStaticText("0");
+      secondsText = new HStaticText("00");
+      msText = new HStaticText("00");
+      minutesText.setLocation(450, -100);
+      minutesText.setSize(300,250);
+      secondsText.setLocation(485, -100);
+      secondsText.setSize(300, 250);
+      msText.setLocation(520, -100);
+      msText.setSize(300,250);
+      
+      Stopwatch objStopwatch = new Stopwatch();
+      Timer stopwatchTimer = new Timer();
+      objStopwatch.setStopwatchText( minutesText, secondsText, msText);
+      stopwatchTimer.scheduleAtFixedRate(objStopwatch, 0, 10); // every 10 ms
+     
+      // have to add timer for background
+      //scene.add(bg);
+      
       scene.add(bord);
+      
+      scene.add(minutesText);
+      scene.add(secondsText);
+      scene.add(msText);
+      
       scene.validate();
       scene.setVisible(true);
     }
@@ -44,5 +78,6 @@ public class HelloTVXlet implements Xlet, HActionListener {
     public void actionPerformed(ActionEvent arg0) {
        
         }
+
         
     }
