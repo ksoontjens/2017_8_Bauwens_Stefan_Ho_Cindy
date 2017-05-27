@@ -33,6 +33,7 @@ public class Track extends HComponent implements UserEventListener {
     int multiplier = 0;
     int speed = 50;
     int addToX = 0;
+    int addToXCar = 0;
     boolean turnRight = true;
     boolean isTurning = false;
     
@@ -48,7 +49,7 @@ public class Track extends HComponent implements UserEventListener {
     
     //HStaticText tekstlabel;
     
-    int[] map = {0,-2,4,-4,4,-4,2,0,0};//,-1,1,1,-1,-1,1,-1,1,0,0}; //0 is no change 
+    int[] map = {0,-2,4,-4,4,-4,2,0,0-2,4,-4,4,-4,2,0,0};//,-1,1,1,-1,-1,1,-1,1,0,0}; //0 is no change 
                                                                 //+ is turn left
                                                                 //- is turn right
     
@@ -188,18 +189,34 @@ public class Track extends HComponent implements UserEventListener {
             }
         }
         
-        int curposbegin=kcounter;
+        /*int curposbegin=kcounter;
         int curposend=curposbegin+75;
-        int relcarpos=carpos-curposbegin;
-        relcarpos = 15;
+        int relcarpos=carpos-curposbegin;*/
+        int relcarpos = 50;
         System.out.println("relcarpos="+relcarpos);
         /*if ((carpos>curposbegin )&& (carpos < curposend))
         {*/
-            int scalef=200; //int)(relcarpos/10.0);
-            System.out.println("scalef="+scalef);
-           // Image scaled=bluecar.getScaledInstance(scalef, scalef, Image.SCALE_SMOOTH);
-            g.drawImage(bluecar,transformX(bx[relcarpos]+220,hy[relcarpos],relcarpos),transformY(bx[relcarpos]+220,hy[relcarpos],relcarpos),null);
-        //}
+            int z = 10;
+            int scalef=60-z; //int)(relcarpos/10.0);
+            
+            //g.drawImage(bluecar,transformX(bx[relcarpos]+220+addToXCar,hy[relcarpos],relcarpos),transformY(bx[relcarpos]+220+addToXCar,hy[relcarpos],relcarpos), scalef, scalef ,this);
+            g.drawImage(bluecar, transformX(bx[z]+addToXCar, hy[z], z)-scalef/2, transformY(bx[z]+addToXCar, hy[z], z)-scalef/2, scalef, scalef, this);
+            g.setColor(Color.yellow);
+            int x[]=new int[4];
+            int y[]=new int[4];
+            x[0]=transformX(bx[z]+addToXCar, hy[z], z);
+            y[0]=transformY(bx[z]+addToXCar, hy[z], z);
+
+            x[1]=transformX(bx[z]+10+addToXCar, hy[z], z);
+            y[1]=transformY(bx[z]+10+addToXCar, hy[z], z);
+
+            x[2]=transformX(bx[z]+10+addToXCar, hy[z+1], z+1);
+            y[2]=transformY(bx[z]+10+addToXCar, hy[z+1], z+1);
+
+            x[3]=transformX(bx[z]+addToXCar, hy[z+1], z+1);
+            y[3]=transformY(bx[z]+addToXCar, hy[z+1], z+1);   
+            g.fillPolygon(x,y,4);
+            //}
     }
 
     public void userEventReceived(UserEvent e) {
@@ -224,16 +241,18 @@ public class Track extends HComponent implements UserEventListener {
     
     public void drawBg(){
         tim++;
-        kcounter++;
+        //kcounter++;
         if (isTurning)
         {
             if (turnRight)
             {
-               addToX-=10;
+               //addToX-=10;
+                addToXCar+=10;
             }
             else
             {
-                addToX+=10;
+                //addToX+=10;
+                addToXCar-=10;
             } 
             isTurning = false;
         }
