@@ -56,7 +56,7 @@ public class Track extends HComponent implements UserEventListener {
     Image[] carSprites ;//= new String[5];
     
     Random rand = new Random();
-    
+
     Image bluecar = this.getToolkit().getImage("blueCar-middle.png"); 
     Image pinkcar = this.getToolkit().getImage("pinkCar-middle.png");
     Image greencar = this.getToolkit().getImage("greenCar-middle.png");
@@ -157,7 +157,7 @@ public class Track extends HComponent implements UserEventListener {
         for (int z=79;z>=5;z--) //this for-loop is used to draw every line of our road
         {   
             
-            g.setColor(Color.GREEN); //draws the grass
+            g.setColor(Color.YELLOW); //draws the grass
             int x[]=new int[5];
         
             int y[]=new int[5];
@@ -241,7 +241,7 @@ public class Track extends HComponent implements UserEventListener {
         int curposend=curposbegin+75;
         int relcarpos=carpos-curposbegin;*/
         int relcarpos = 50;
-        System.out.println("relcarpos="+relcarpos);
+        //System.out.println("relcarpos="+relcarpos);
         /*if ((carpos>curposbegin )&& (carpos < curposend))
         {*/
         
