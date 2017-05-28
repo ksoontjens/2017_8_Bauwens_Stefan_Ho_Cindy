@@ -72,11 +72,11 @@ public class Track extends HComponent implements UserEventListener {
     int[] map = {0,-1,2,-2,2,-2,1,0,0-2,4,-4,4,-4,2,0,0};//,-1,1,1,-1,-1,1,-1,1,0,0}; //0 is no change 
                                                                 //+ is turn left
                                                                 //- is turn right
-    
-
+    Stopwatch objStopwatch = new Stopwatch();
     public Track()
     {
         this.setBounds(0,0,720,576); // full screen
+        
         
         mtrack = new MediaTracker(this);
         mtrack.addImage(bluecar,0);
@@ -86,6 +86,7 @@ public class Track extends HComponent implements UserEventListener {
         mtrack.addImage(redcar,4);
         mtrack.addImage(yellowcar,5);
         mtrack.addImage(palmtree,6);
+        
         
         try
         {
@@ -108,7 +109,8 @@ public class Track extends HComponent implements UserEventListener {
         Timer timer = new Timer();
         objMyTimerTask.setChessBoard(this);
         timer.scheduleAtFixedRate(objMyTimerTask, 0, speed); // timer runs every 25ms
-       
+        
+        //objStopwatch.SetTimerRoad(timer);
     }
     
     int transformX(int x,int y,int z) //this method converts 3D point to a projected 2D point (x)
@@ -263,7 +265,7 @@ public class Track extends HComponent implements UserEventListener {
                 if (checkIntersect(transformX(bx[10]+addToXCar, hy[10], 10)-27 + margin,transformY(bx[10]+addToXCar, hy[10], 10)-27+margin,55-margin,55-margin,transformX(bx[z]+xPos, hy[z], z)-(scalef/2)+margin,transformY(bx[z]+xPos, hy[z], z)-(scalef/2)+margin,scalef-margin,scalef-margin))
                 {
                     System.out.println("GAME OVER");
-                    //insert stopwatch
+                    objStopwatch.gameEnds = true;
                 }
             }
             
@@ -357,6 +359,8 @@ public class Track extends HComponent implements UserEventListener {
         }
 
         this.repaint();
+        
+        //System.out.println("drawBg");
     }
     
 }
