@@ -14,6 +14,10 @@ public class HelloTVXlet implements Xlet, HActionListener {
     private HStaticText minutesText;
     private HStaticText secondsText;
     private HStaticText msText;
+    private HStaticText gameOverText;
+    private HStaticText endMin;
+    private HStaticText endSec;
+    private HStaticText endMs;
 
     public HelloTVXlet() {
         
@@ -29,6 +33,7 @@ public class HelloTVXlet implements Xlet, HActionListener {
      EventManager man=EventManager.getInstance();
      man.addUserEventListener(bord, repo);
      
+      
       minutesText = new HStaticText("0");
       secondsText = new HStaticText("00");
       msText = new HStaticText("00");
@@ -39,21 +44,45 @@ public class HelloTVXlet implements Xlet, HActionListener {
       msText.setLocation(520, -100);
       msText.setSize(300,250);
       
+      gameOverText = new HStaticText("GAME OVER");
+      gameOverText.setLocation(60, -150);
+      gameOverText.setSize(600,600);
+      endMin = new HStaticText("0");
+      endMin.setLocation(23, -100);
+      endMin.setSize(600,600);
+      endSec = new HStaticText("00");
+      endSec.setLocation(53, -100);
+      endSec.setSize(600,600);
+      endMs = new HStaticText("00");
+      endMs.setLocation(88, -100);
+      endMs.setSize(600,600);
+      
       Stopwatch objStopwatch = new Stopwatch();
       Timer stopwatchTimer = new Timer();
-      objStopwatch.setStopwatchText( minutesText, secondsText, msText);
+      objStopwatch.setStopwatchText( minutesText, secondsText, msText, gameOverText);
       stopwatchTimer.scheduleAtFixedRate(objStopwatch, 0, 10); // every 10 ms
       
+      objStopwatch.SetTimerStopwatch(stopwatchTimer);
+      objStopwatch.SetEndTime(endMin, endSec, endMs);
+      scene.add(gameOverText);
+      scene.add(endMin);
+      scene.add(endSec);
+      scene.add(endMs);
       scene.add(bord);
-      
       scene.add(minutesText);
       scene.add(secondsText);
       scene.add(msText);
+      
       scene.add(bgImage);
       scene.validate();
       scene.setVisible(true);
+      
+      gameOverText.setVisible(false);
+      endMin.setVisible(false);
+      endSec.setVisible(false);
+      endMs.setVisible(false);
     }
-
+    
     public void startXlet() {
 
     }

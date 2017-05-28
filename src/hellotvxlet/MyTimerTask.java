@@ -20,7 +20,10 @@ public class MyTimerTask extends TimerTask {
     }
     
     public void run() {
-        cb.drawBg();
+        if (!Stopwatch.gameEnds)
+        {
+            cb.drawBg();
+        }
     }
 
 }
