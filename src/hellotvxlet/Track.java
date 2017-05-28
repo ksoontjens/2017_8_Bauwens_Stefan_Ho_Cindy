@@ -66,6 +66,8 @@ public class Track extends HComponent implements UserEventListener {
     Image redcar = this.getToolkit().getImage("redCar-middle.png");
     Image yellowcar = this.getToolkit().getImage("yellowCar-middle.png");
     Image palmtree = this.getToolkit().getImage("palmTree.png");
+    Image stage = this.getToolkit().getImage("stage.png");
+    Image lap = this.getToolkit().getImage("lap.png");
 
     MediaTracker mtrack;
     
@@ -88,6 +90,8 @@ public class Track extends HComponent implements UserEventListener {
         mtrack.addImage(redcar,4);
         mtrack.addImage(yellowcar,5);
         mtrack.addImage(palmtree,6);
+        mtrack.addImage(stage, 7);
+        mtrack.addImage(lap, 8);
         
         
         try
@@ -150,6 +154,7 @@ public class Track extends HComponent implements UserEventListener {
     
     public void paint(Graphics g)
     {
+        
         int hy[]=new int[81];
         int bx[]=new int[81];
         
@@ -260,6 +265,9 @@ public class Track extends HComponent implements UserEventListener {
             }
             
         }
+        g.drawImage(stage,520,450,null);
+        g.drawImage(lap,450,10,null);
+        
         
         int z;
         int scalef;
@@ -275,7 +283,7 @@ public class Track extends HComponent implements UserEventListener {
                 System.out.println("GAME OVER");
                 objStopwatch.gameEnds = true;
             }
-            if 
+           
         }
 
         //Your car:
@@ -324,6 +332,8 @@ public class Track extends HComponent implements UserEventListener {
     
     public void drawBg(){
         tim+=2;
+        
+        
         if (rand.nextInt(10)==1) //random enemy car
         {
             cars[(carCount+1)%cars.length] = (new car(lanes[rand.nextInt(3)],0.5f,0,rand.nextInt(5)));
