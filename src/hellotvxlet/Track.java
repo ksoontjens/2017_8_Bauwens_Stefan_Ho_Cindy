@@ -54,7 +54,8 @@ public class Track extends HComponent implements UserEventListener {
     car[] cars = new car[20];
     Image[] carSprites ;//= new String[5];
     
-    public boolean gameOver = false;
+    //public boolean gameOver = false;
+    Timer timer;
     
     Random rand = new Random();
 
@@ -102,18 +103,40 @@ public class Track extends HComponent implements UserEventListener {
             System.out.println(e.toString());
         }
         
+        /*for (int i = 0; i < cars.length; i++) //initialsing array
+        {
+            cars[i] = new car(0,0,-4, 0); 
+        }
+        
+        carSprites = new Image[] {pinkcar, greencar, orangecar, redcar, yellowcar};*/
+        
+        /*MyTimerTask objMyTimerTask = new MyTimerTask();
+        Timer timer = new Timer();
+        objMyTimerTask.setChessBoard(this);
+        timer.scheduleAtFixedRate(objMyTimerTask, 0, speed); // timer runs every 25ms*/
+        timer = new Timer();
+        MyTimerTask objMyTimerTask = new MyTimerTask();
+        objMyTimerTask.setChessBoard(this);
+        timer.scheduleAtFixedRate(objMyTimerTask, 0, speed); // timer runs every 25ms
+        Initialise();
+        
+        //objStopwatch.SetTimerRoad(timer);
+    }
+    
+    void Initialise() //used to reset and start game
+    {
+        tim = 0;
+        iterate = 0;
+        counter = 0;
+        multiplier = 0;
+        addToXCar = 350;
+        objStopwatch.gameEnds = false;
         for (int i = 0; i < cars.length; i++) //initialsing array
         {
             cars[i] = new car(0,0,-4, 0); 
         }
         
         carSprites = new Image[] {pinkcar, greencar, orangecar, redcar, yellowcar};
-        //cars[0] = (new car(lanes[rand.nextInt(3)],0.5f,0));
-        
-        MyTimerTask objMyTimerTask = new MyTimerTask();
-        Timer timer = new Timer();
-        objMyTimerTask.setChessBoard(this);
-        timer.scheduleAtFixedRate(objMyTimerTask, 0, speed); // timer runs every 25ms
     }
     
     int transformX(int x,int y,int z) //this method converts 3D point to a projected 2D point (x)
@@ -244,59 +267,29 @@ public class Track extends HComponent implements UserEventListener {
         }
         g.drawImage(stage,520,450,null);
         g.drawImage(lap,450,10,null);
-        /*int curposbegin=kcounter;
-        int curposend=curposbegin+75;
-        int relcarpos=carpos-curposbegin;*/
-        int relcarpos = 50;
-        //System.out.println("relcarpos="+relcarpos);
-        /*if ((carpos>curposbegin )&& (carpos < curposend))
-        {*/
         
-        /*
-         * z = 50+(int)addToZ;
-                scalef=70-(int)(z*1.5f);
-                int xPos = 500;//200;//350;
-                g.drawImage(pinkcar, transformX(bx[z]+xPos, hy[z], z)-scalef/2, transformY(bx[z]+xPos, hy[z], z)-scalef/2, scalef, scalef, this);
-         * */
-            int z;
-            int scalef;
-            //Enemy car:
-            for (int i = 0; i < cars.length; i++)
+        
+        int z;
+        int scalef;
+        //Enemy car:
+        for (int i = 0; i < cars.length; i++)
+        {
+            z = 50+(int)cars[i].getZPos();
+            scalef=70-(int)(z*1.5f);
+            int xPos = cars[i].getLane();//200;//350;
+            g.drawImage(carSprites[cars[i].getSpriteIndex()], transformX(bx[z]+xPos, hy[z], z)-scalef/2, transformY(bx[z]+xPos, hy[z], z)-scalef/2, scalef, scalef, this);
+            if (checkIntersect(transformX(bx[10]+addToXCar, hy[10], 10)-27 + margin,transformY(bx[10]+addToXCar, hy[10], 10)-27+margin,55-margin,55-margin,transformX(bx[z]+xPos, hy[z], z)-(scalef/2)+margin,transformY(bx[z]+xPos, hy[z], z)-(scalef/2)+margin,scalef-margin,scalef-margin))
             {
-                z = 50+(int)cars[i].getZPos();
-                scalef=70-(int)(z*1.5f);
-                int xPos = cars[i].getLane();//200;//350;
-                g.drawImage(carSprites[cars[i].getSpriteIndex()], transformX(bx[z]+xPos, hy[z], z)-scalef/2, transformY(bx[z]+xPos, hy[z], z)-scalef/2, scalef, scalef, this);
-                if (checkIntersect(transformX(bx[10]+addToXCar, hy[10], 10)-27 + margin,transformY(bx[10]+addToXCar, hy[10], 10)-27+margin,55-margin,55-margin,transformX(bx[z]+xPos, hy[z], z)-(scalef/2)+margin,transformY(bx[z]+xPos, hy[z], z)-(scalef/2)+margin,scalef-margin,scalef-margin))
-                {
-                    System.out.println("GAME OVER");
-
-                    objStopwatch.gameEnds = true;
-
-                }
+                System.out.println("GAME OVER");
+                objStopwatch.gameEnds = true;
             }
-            
-            //Your car:
-            z = 10;
-            scalef = 70-(int)(z*1.5f);
-            g.drawImage(bluecar, transformX(bx[z]+addToXCar, hy[z], z)-scalef/2, transformY(bx[z]+addToXCar, hy[z], z)-scalef/2, scalef, scalef, this);
-            
-            /*g.setColor(Color.yellow); //for testing purposes:
-            int x[]=new int[4];
-            int y[]=new int[4];
-            x[0]=transformX(bx[z]+addToXCar, hy[z], z);
-            y[0]=transformY(bx[z]+addToXCar, hy[z], z);
+           
+        }
 
-            x[1]=transformX(bx[z]+10+addToXCar, hy[z], z);
-            y[1]=transformY(bx[z]+10+addToXCar, hy[z], z);
-
-            x[2]=transformX(bx[z]+10+addToXCar, hy[z+1], z+1);
-            y[2]=transformY(bx[z]+10+addToXCar, hy[z+1], z+1);
-
-            x[3]=transformX(bx[z]+addToXCar, hy[z+1], z+1);
-            y[3]=transformY(bx[z]+addToXCar, hy[z+1], z+1);   
-            g.fillPolygon(x,y,4);*/
-            //}
+        //Your car:
+        z = 10;
+        scalef = 70-(int)(z*1.5f);
+        g.drawImage(bluecar, transformX(bx[z]+addToXCar, hy[z], z)-scalef/2, transformY(bx[z]+addToXCar, hy[z], z)-scalef/2, scalef, scalef, this);
     }
 
     public void userEventReceived(UserEvent e) {
@@ -313,6 +306,11 @@ public class Track extends HComponent implements UserEventListener {
                turnRight = false;
                isTurning = true;
            }
+           if (e.getCode()==HRcEvent.VK_UP && objStopwatch.gameEnds==true) 
+           {
+               this.Initialise();
+           }
+           
        }
     }
     
@@ -338,7 +336,7 @@ public class Track extends HComponent implements UserEventListener {
         
         if (rand.nextInt(10)==1) //random enemy car
         {
-            cars[(carCount+1)%cars.length] = (new car(lanes[rand.nextInt(3)],rand.nextFloat(),0,rand.nextInt(5)));
+            cars[(carCount+1)%cars.length] = (new car(lanes[rand.nextInt(3)],0.5f,0,rand.nextInt(5)));
             carCount++;
         }
         for (int i = 0; i < cars.length; i++)
