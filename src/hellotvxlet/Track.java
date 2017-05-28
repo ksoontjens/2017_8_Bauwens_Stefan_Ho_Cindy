@@ -49,7 +49,7 @@ public class Track extends HComponent implements UserEventListener {
     int carCount = 0;
     
     int[] lanes = {200, 350, 500};
-    int margin = 15;
+    int margin = 16;
 
     car[] cars = new car[20];
     Image[] carSprites ;//= new String[5];
@@ -84,11 +84,11 @@ public class Track extends HComponent implements UserEventListener {
         
         
         mtrack = new MediaTracker(this);
-        mtrack.addImage(bluecar,0);
+        mtrack.addImage(redcar,0);
         mtrack.addImage(pinkcar,1);
         mtrack.addImage(greencar,2);
         mtrack.addImage(orangecar,3);
-        mtrack.addImage(redcar,4);
+        mtrack.addImage(bluecar,4);
         mtrack.addImage(yellowcar,5);
         mtrack.addImage(palmtree,6);
         mtrack.addImage(stage, 7);
@@ -109,7 +109,7 @@ public class Track extends HComponent implements UserEventListener {
             cars[i] = new car(0,0,-4, 0); 
         }
         
-        carSprites = new Image[] {pinkcar, greencar, orangecar, redcar, yellowcar};*/
+        carSprites = new Image[] {pinkcar, greencar, orangecar, bluecar, yellowcar};*/
         
         /*MyTimerTask objMyTimerTask = new MyTimerTask();
         Timer timer = new Timer();
@@ -120,8 +120,6 @@ public class Track extends HComponent implements UserEventListener {
         objMyTimerTask.setChessBoard(this);
         timer.scheduleAtFixedRate(objMyTimerTask, 0, speed); // timer runs every 25ms
         Initialise();
-        
-        //objStopwatch.SetTimerRoad(timer);
     }
     
     void Initialise() //used to reset and start game
@@ -137,7 +135,7 @@ public class Track extends HComponent implements UserEventListener {
             cars[i] = new car(0,0,-4, 0); 
         }
         
-        carSprites = new Image[] {pinkcar, greencar, orangecar, redcar, yellowcar};
+        carSprites = new Image[] {pinkcar, greencar, orangecar, bluecar, yellowcar};
     }
     
     int transformX(int x,int y,int z) //this method converts 3D point to a projected 2D point (x)
@@ -187,7 +185,7 @@ public class Track extends HComponent implements UserEventListener {
         for (int z=79;z>=5;z--) //this for-loop is used to draw every line of our road
         {   
             
-            g.setColor(Color.YELLOW); //draws the grass
+            g.setColor(Color.YELLOW); //draws the sand
             int x[]=new int[5];
         
             int y[]=new int[5];
@@ -267,7 +265,7 @@ public class Track extends HComponent implements UserEventListener {
             
         }
         g.drawImage(stage,520,450,null);
-        g.drawImage(lap,450,10,null);
+        g.drawImage(lap,450,27,null);
         
         
         int z;
@@ -290,7 +288,7 @@ public class Track extends HComponent implements UserEventListener {
         //Your car:
         z = 10;
         scalef = 70-(int)(z*1.5f);
-        g.drawImage(bluecar, transformX(bx[z]+addToXCar, hy[z], z)-scalef/2, transformY(bx[z]+addToXCar, hy[z], z)-scalef/2, scalef, scalef, this);
+        g.drawImage(redcar, transformX(bx[z]+addToXCar, hy[z], z)-scalef/2, transformY(bx[z]+addToXCar, hy[z], z)-scalef/2, scalef, scalef, this);
         
         if ((transformX(bx[z]+addToXCar, hy[z], z)-scalef/2) < transformX(100+bx[z],hy[z],z) || (transformX(bx[z]+addToXCar, hy[z], z)-scalef/2) > transformX(620+bx[z],hy[z],z))
         {
@@ -373,8 +371,6 @@ public class Track extends HComponent implements UserEventListener {
         }
 
         this.repaint();
-        
-        //System.out.println("drawBg");
     }
     
 }

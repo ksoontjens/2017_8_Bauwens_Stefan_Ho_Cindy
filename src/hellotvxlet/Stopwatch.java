@@ -24,6 +24,7 @@ public class Stopwatch extends TimerTask{
     HStaticText minutesText;
     HStaticText msText;
     HStaticText gameOverText;
+    HStaticText restartText;
     String secondsString = "00";
     String minutesString = "00";
     String msString = "00";
@@ -36,11 +37,12 @@ public class Stopwatch extends TimerTask{
     Timer timerRoad;
 
     
-    public void setStopwatchText(HStaticText minutesText, HStaticText secondsText, HStaticText msText, HStaticText gameOverText){
+    public void setStopwatchText(HStaticText minutesText, HStaticText secondsText, HStaticText msText, HStaticText gameOverText, HStaticText restartText){
         this.secondsText = secondsText;
         this.minutesText = minutesText;
         this.msText = msText;
         this.gameOverText = gameOverText;
+        this.restartText = restartText;
     }
     
     public void run(){
@@ -95,7 +97,7 @@ public class Stopwatch extends TimerTask{
             endMin.setVisible(true);
             endSec.setVisible(true);
             endMs.setVisible(true);
-            //timerRoad.cancel();            
+            restartText.setVisible(true);          
         }
         else
         {
@@ -106,6 +108,7 @@ public class Stopwatch extends TimerTask{
                 endMin.setVisible(false);
                 endSec.setVisible(false);
                 endMs.setVisible(false);
+                restartText.setVisible(false);
                 ms = 0;
                 seconds = 0;
                 minutes = 0;

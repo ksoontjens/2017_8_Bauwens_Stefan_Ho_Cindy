@@ -1,7 +1,7 @@
 Signature-Version: 1.0
 Created-By: 1.6.0_16 (Sun Microsystems Inc.)
 BDJ-Signature-Version: 1.0
-SHA1-Digest-Manifest: 0yfdJ7MJNicaTFOL+R61qrBbwys=
+SHA1-Digest-Manifest: RVDCAkZBvhdC39x3VvIHwrjyFMY=
 
 Name: hellotvxlet/GameOver.class
 SHA1-Digest: fLwAYaKN091b+TeanqzjGsKWn9U=
@@ -10,7 +10,7 @@ Name: orangeCar-right.png
 SHA1-Digest: zEExAZ+m8syqwx3jZulglYCy2e4=
 
 Name: hellotvxlet/HelloTVXlet.class
-SHA1-Digest: OJ9/Zy0NAtTJ8O04LEaisUryk0U=
+SHA1-Digest: 80k3SqA9ezXKvgeLLzrlpJZ1myg=
 
 Name: orangeCar-left.png
 SHA1-Digest: liJp3LOue2K7UU246prlCvQWAyA=
@@ -43,7 +43,7 @@ Name: stage.png
 SHA1-Digest: seO9E+TJA7n6DSqPbrF9LFhPR5Q=
 
 Name: hellotvxlet/Stopwatch.class
-SHA1-Digest: Ha8GM89XuPotCzdRLOEkYtTWzVY=
+SHA1-Digest: h3XfuWNRYSVV1Z8u2EYjV+5kv6w=
 
 Name: skyBackground.png
 SHA1-Digest: 5IMWa40OTG3rxjxWOWn5UUCX8Ig=
@@ -100,7 +100,7 @@ Name: pinkCar-right.png
 SHA1-Digest: OwbOOzztp+6Xl9w24yNMkRL+rUw=
 
 Name: hellotvxlet/Track.class
-SHA1-Digest: LaMY+cs/R+Zt7cBcfMicmEP2AQY=
+SHA1-Digest: MRwXdAdeeCIiEmYOjJSK3eKaUkQ=
 
 Name: skyBackground.m2v
 SHA1-Digest: 3pEjjPgcVYLQqb4e5lRYprhSNAM=
