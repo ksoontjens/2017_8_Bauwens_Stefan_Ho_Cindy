@@ -49,14 +49,15 @@ public class Track extends HComponent implements UserEventListener {
     int carCount = 0;
     
     int[] lanes = {200, 350, 500};
-    int margin = 5;
-    //car[] test = new car[3];
-    //List<car> cars = new ArrayList<car>();
+    int margin = 10;
+
     car[] cars = new car[20];
     Image[] carSprites ;//= new String[5];
     
-    Random rand = new Random();
+    public boolean gameOver = false;
     
+    Random rand = new Random();
+
     Image bluecar = this.getToolkit().getImage("blueCar-middle.png"); 
     Image pinkcar = this.getToolkit().getImage("pinkCar-middle.png");
     Image greencar = this.getToolkit().getImage("greenCar-middle.png");
@@ -157,7 +158,7 @@ public class Track extends HComponent implements UserEventListener {
         for (int z=79;z>=5;z--) //this for-loop is used to draw every line of our road
         {   
             
-            g.setColor(Color.GREEN); //draws the grass
+            g.setColor(Color.YELLOW); //draws the grass
             int x[]=new int[5];
         
             int y[]=new int[5];
@@ -241,7 +242,7 @@ public class Track extends HComponent implements UserEventListener {
         int curposend=curposbegin+75;
         int relcarpos=carpos-curposbegin;*/
         int relcarpos = 50;
-        System.out.println("relcarpos="+relcarpos);
+        //System.out.println("relcarpos="+relcarpos);
         /*if ((carpos>curposbegin )&& (carpos < curposend))
         {*/
         
@@ -263,6 +264,7 @@ public class Track extends HComponent implements UserEventListener {
                 if (checkIntersect(transformX(bx[10]+addToXCar, hy[10], 10)-27 + margin,transformY(bx[10]+addToXCar, hy[10], 10)-27+margin,55-margin,55-margin,transformX(bx[z]+xPos, hy[z], z)-(scalef/2)+margin,transformY(bx[z]+xPos, hy[z], z)-(scalef/2)+margin,scalef-margin,scalef-margin))
                 {
                     System.out.println("GAME OVER");
+                    gameOver = true;
                     //insert stopwatch
                 }
             }
@@ -296,7 +298,8 @@ public class Track extends HComponent implements UserEventListener {
            if (e.getCode()==HRcEvent.VK_RIGHT)
            {
                turnRight = true; 
-               isTurning = true;                   
+               isTurning = true;     
+               System.out.println("clear");
            }
            if (e.getCode()==HRcEvent.VK_LEFT) 
            {
@@ -326,7 +329,7 @@ public class Track extends HComponent implements UserEventListener {
         tim+=2;
         if (rand.nextInt(10)==1) //random enemy car
         {
-            cars[(carCount+1)%cars.length] = (new car(lanes[rand.nextInt(3)],0.5f,0,rand.nextInt(5)));
+            cars[(carCount+1)%cars.length] = (new car(lanes[rand.nextInt(3)],rand.nextFloat(),0,rand.nextInt(5)));
             carCount++;
         }
         for (int i = 0; i < cars.length; i++)
