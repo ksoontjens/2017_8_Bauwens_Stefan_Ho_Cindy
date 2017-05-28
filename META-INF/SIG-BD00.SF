@@ -1,7 +1,7 @@
 Signature-Version: 1.0
 Created-By: 1.6.0_16 (Sun Microsystems Inc.)
 BDJ-Signature-Version: 1.0
-SHA1-Digest-Manifest: KiLIERVKBtZzQG77IrbdtSCw8ls=
+SHA1-Digest-Manifest: m5sjOhbkFHkA4F2GvPraIEg0xbw=
 
 Name: hellotvxlet/GameOver.class
 SHA1-Digest: fLwAYaKN091b+TeanqzjGsKWn9U=
@@ -10,7 +10,7 @@ Name: orangeCar-right.png
 SHA1-Digest: zEExAZ+m8syqwx3jZulglYCy2e4=
 
 Name: hellotvxlet/HelloTVXlet.class
-SHA1-Digest: e1VxfUeWwSFd7x3oBGhKRdu8oLU=
+SHA1-Digest: OJ9/Zy0NAtTJ8O04LEaisUryk0U=
 
 Name: orangeCar-left.png
 SHA1-Digest: liJp3LOue2K7UU246prlCvQWAyA=
@@ -39,14 +39,20 @@ SHA1-Digest: JItuUu0dhJppCgv9jCVQMizQmN4=
 Name: pinkCar-middle.png
 SHA1-Digest: nT9dr85p9g8LfbM+V+4hggXrr/8=
 
+Name: stage.png
+SHA1-Digest: seO9E+TJA7n6DSqPbrF9LFhPR5Q=
+
 Name: hellotvxlet/Stopwatch.class
-SHA1-Digest: hZj8iWO8Sosx+L9NwTeQ0wrp27Y=
+SHA1-Digest: 1PHkKyrS1lnyR5lQ/Gnmfmhbx8Y=
 
 Name: skyBackground.png
 SHA1-Digest: 5IMWa40OTG3rxjxWOWn5UUCX8Ig=
 
 Name: redCar-left.png
 SHA1-Digest: TVQ8RjGY0P5Hd50GlPr6SxaOBbM=
+
+Name: lap.png
+SHA1-Digest: BHKvRJByvOA+lw1cC1qpw0yaZ88=
 
 Name: yellowCar-right.png
 SHA1-Digest: h61lOmIQG3KqIVnT2sUryXsfxJo=
@@ -88,13 +94,13 @@ Name: yellowCar-left.png
 SHA1-Digest: iXMvqYuP69VDXJVNWLEfXse0iLU=
 
 Name: Thumbs.db
-SHA1-Digest: DdSmqHmS4+qagVwZOhEe5rUZLiU=
+SHA1-Digest: 5nTGAJ6hMSxZ1A8Q35bEydzzqkU=
 
 Name: pinkCar-right.png
 SHA1-Digest: OwbOOzztp+6Xl9w24yNMkRL+rUw=
 
 Name: hellotvxlet/Track.class
-SHA1-Digest: TMy6BQRRb5pfCGtZx+f+r7iWYQk=
+SHA1-Digest: N2uuP7BQWTW7E40cdx8c7ox7HwE=
 
 Name: skyBackground.m2v
 SHA1-Digest: 3pEjjPgcVYLQqb4e5lRYprhSNAM=

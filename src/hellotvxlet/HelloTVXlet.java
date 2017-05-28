@@ -1,5 +1,6 @@
 package hellotvxlet;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.util.Timer;
 import javax.tv.xlet.*;
@@ -37,11 +38,11 @@ public class HelloTVXlet implements Xlet, HActionListener {
       minutesText = new HStaticText("0");
       secondsText = new HStaticText("00");
       msText = new HStaticText("00");
-      minutesText.setLocation(450, -100);
+      minutesText.setLocation(400, -97);
       minutesText.setSize(300,250);
-      secondsText.setLocation(485, -100);
+      secondsText.setLocation(430, -97);
       secondsText.setSize(300, 250);
-      msText.setLocation(520, -100);
+      msText.setLocation(465, -97);
       msText.setSize(300,250);
       
       gameOverText = new HStaticText("GAME OVER");

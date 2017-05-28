@@ -91,9 +91,7 @@ public class Stopwatch extends TimerTask{
             endMs.setTextContent(msString, HState.NORMAL_STATE);
             endMin.setVisible(true);
             endSec.setVisible(true);
-            endMs.setVisible(true);
-            //timerRoad.cancel();
-            
+            endMs.setVisible(true);  
         }
     }
     public void SetEndTime(HStaticText minText, HStaticText secText, HStaticText msText)

@@ -65,6 +65,8 @@ public class Track extends HComponent implements UserEventListener {
     Image redcar = this.getToolkit().getImage("redCar-middle.png");
     Image yellowcar = this.getToolkit().getImage("yellowCar-middle.png");
     Image palmtree = this.getToolkit().getImage("palmTree.png");
+    Image stage = this.getToolkit().getImage("stage.png");
+    Image lap = this.getToolkit().getImage("lap.png");
 
     MediaTracker mtrack;
     
@@ -87,6 +89,8 @@ public class Track extends HComponent implements UserEventListener {
         mtrack.addImage(redcar,4);
         mtrack.addImage(yellowcar,5);
         mtrack.addImage(palmtree,6);
+        mtrack.addImage(stage, 7);
+        mtrack.addImage(lap, 8);
         
         
         try
@@ -110,8 +114,6 @@ public class Track extends HComponent implements UserEventListener {
         Timer timer = new Timer();
         objMyTimerTask.setChessBoard(this);
         timer.scheduleAtFixedRate(objMyTimerTask, 0, speed); // timer runs every 25ms
-        
-        //objStopwatch.SetTimerRoad(timer);
     }
     
     int transformX(int x,int y,int z) //this method converts 3D point to a projected 2D point (x)
@@ -129,6 +131,7 @@ public class Track extends HComponent implements UserEventListener {
     
     public void paint(Graphics g)
     {
+        
         int hy[]=new int[81];
         int bx[]=new int[81];
         
@@ -239,7 +242,8 @@ public class Track extends HComponent implements UserEventListener {
             }
             
         }
-        
+        g.drawImage(stage,520,450,null);
+        g.drawImage(lap,450,10,null);
         /*int curposbegin=kcounter;
         int curposend=curposbegin+75;
         int relcarpos=carpos-curposbegin;*/
@@ -330,6 +334,8 @@ public class Track extends HComponent implements UserEventListener {
     
     public void drawBg(){
         tim+=2;
+        
+        
         if (rand.nextInt(10)==1) //random enemy car
         {
             cars[(carCount+1)%cars.length] = (new car(lanes[rand.nextInt(3)],rand.nextFloat(),0,rand.nextInt(5)));
