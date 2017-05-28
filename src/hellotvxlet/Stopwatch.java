@@ -18,6 +18,7 @@ public class Stopwatch extends TimerTask{
     int ms;
     int seconds;
     int minutes;
+    boolean hasEnded = false;
     //int milliseconds;
     HStaticText secondsText;
     HStaticText minutesText;
@@ -43,8 +44,10 @@ public class Stopwatch extends TimerTask{
     }
     
     public void run(){
-        ms++;
-        
+        if(!gameEnds)
+        {
+            ms++;
+        }
         if(ms < 10)
         {
             msString = "0" + ms;
@@ -83,8 +86,8 @@ public class Stopwatch extends TimerTask{
 
         if(gameEnds)
         {
-            timerSw.cancel();
-            
+            //timerSw.cancel();
+            hasEnded = true;
             gameOverText.setVisible(true);
             endMin.setTextContent(minutesString + "'", HState.NORMAL_STATE);
             endSec.setTextContent(secondsString + "\"", HState.NORMAL_STATE);
@@ -92,8 +95,21 @@ public class Stopwatch extends TimerTask{
             endMin.setVisible(true);
             endSec.setVisible(true);
             endMs.setVisible(true);
-            //timerRoad.cancel();
-            
+            //timerRoad.cancel();            
+        }
+        else
+        {
+            if (hasEnded)
+            {
+                hasEnded = false;
+                gameOverText.setVisible(false);
+                endMin.setVisible(false);
+                endSec.setVisible(false);
+                endMs.setVisible(false);
+                ms = 0;
+                seconds = 0;
+                minutes = 0;
+            }
         }
     }
     public void SetEndTime(HStaticText minText, HStaticText secText, HStaticText msText)
