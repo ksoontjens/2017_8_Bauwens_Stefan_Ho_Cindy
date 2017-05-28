@@ -324,7 +324,7 @@ public class Track extends HComponent implements UserEventListener {
     
     public void drawBg(){
         tim+=2;
-        if (rand.nextInt(50)==1) //random enemy car
+        if (rand.nextInt(10)==1) //random enemy car
         {
             cars[(carCount+1)%cars.length] = (new car(lanes[rand.nextInt(3)],0.5f,0,rand.nextInt(5)));
             carCount++;
