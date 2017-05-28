@@ -108,6 +108,7 @@ public class Stopwatch extends TimerTask{
                 endMin.setVisible(false);
                 endSec.setVisible(false);
                 endMs.setVisible(false);
+                restartText.setVisible(false);
                 ms = 0;
                 seconds = 0;
                 minutes = 0;

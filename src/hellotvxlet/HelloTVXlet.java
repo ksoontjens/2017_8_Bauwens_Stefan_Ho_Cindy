@@ -48,11 +48,11 @@ public class HelloTVXlet implements Xlet, HActionListener {
       secondsText.setFont(fontTime);
       msText = new HStaticText("00");
       msText.setFont(fontTime);
-      minutesText.setLocation(400, -97);
+      minutesText.setLocation(400, -80);
       minutesText.setSize(300,250);
-      secondsText.setLocation(430, -97);
+      secondsText.setLocation(430, -80);
       secondsText.setSize(300, 250);
-      msText.setLocation(465, -97);
+      msText.setLocation(465, -80);
       msText.setSize(300,250);
       
       gameOverText = new HStaticText("GAME OVER");
@@ -75,7 +75,7 @@ public class HelloTVXlet implements Xlet, HActionListener {
       restartText.setFont(fontRestart);
       restartText.setLocation(60,160);
       restartText.setSize(600,600);
-      //restartText.setForeground(Color.RED);
+      restartText.setForeground(Color.DARK_GRAY);
       
       Stopwatch objStopwatch = new Stopwatch();
       Timer stopwatchTimer = new Timer();
