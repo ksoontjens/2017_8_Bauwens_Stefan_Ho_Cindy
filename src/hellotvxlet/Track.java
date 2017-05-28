@@ -49,7 +49,7 @@ public class Track extends HComponent implements UserEventListener {
     int carCount = 0;
     
     int[] lanes = {200, 350, 500};
-    int margin = 10;
+    int margin = 15;
 
     car[] cars = new car[20];
     Image[] carSprites ;//= new String[5];
@@ -73,9 +73,10 @@ public class Track extends HComponent implements UserEventListener {
     
     //HStaticText tekstlabel;
     
-    int[] map = {0,-1,2,-2,2,-2,1,0,0-2,4,-4,4,-4,2,0,0};//,-1,1,1,-1,-1,1,-1,1,0,0}; //0 is no change 
+    //int[] map = {0,-1,2,-2,2,-2,1,0,0-2,4,-4,4,-4,2,0,0};//,-1,1,1,-1,-1,1,-1,1,0,0}; //0 is no change 
                                                                 //+ is turn left
                                                                 //- is turn right
+    int[] map = {0,-2,0, 4,-4, 2,-2,0,4, -4 , 2, 0};       //sortoff a s shaped lap                                                     
     Stopwatch objStopwatch = new Stopwatch();
     public Track()
     {
@@ -167,7 +168,7 @@ public class Track extends HComponent implements UserEventListener {
             if ((z+tim) >= iterate* 100)// && (z+tim) <= iterate*302)
             {
                 counter++;
-                multiplier +=(map[iterate]/10.0f);
+                multiplier +=(map[iterate]/15.0f); //divided by 15 for smoother turning
                 if (counter==2000)
                 {
                     counter = 0;
@@ -290,6 +291,11 @@ public class Track extends HComponent implements UserEventListener {
         z = 10;
         scalef = 70-(int)(z*1.5f);
         g.drawImage(bluecar, transformX(bx[z]+addToXCar, hy[z], z)-scalef/2, transformY(bx[z]+addToXCar, hy[z], z)-scalef/2, scalef, scalef, this);
+        
+        if ((transformX(bx[z]+addToXCar, hy[z], z)-scalef/2) < transformX(100+bx[z],hy[z],z) || (transformX(bx[z]+addToXCar, hy[z], z)-scalef/2) > transformX(620+bx[z],hy[z],z))
+        {
+            objStopwatch.gameEnds = true;
+        }
     }
 
     public void userEventReceived(UserEvent e) {
@@ -299,7 +305,7 @@ public class Track extends HComponent implements UserEventListener {
            {
                turnRight = true; 
                isTurning = true;     
-               System.out.println("clear");
+               //System.out.println("clear");
            }
            if (e.getCode()==HRcEvent.VK_LEFT) 
            {
