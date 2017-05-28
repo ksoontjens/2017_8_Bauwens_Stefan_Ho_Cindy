@@ -273,10 +273,9 @@ public class Track extends HComponent implements UserEventListener {
             if (checkIntersect(transformX(bx[10]+addToXCar, hy[10], 10)-27 + margin,transformY(bx[10]+addToXCar, hy[10], 10)-27+margin,55-margin,55-margin,transformX(bx[z]+xPos, hy[z], z)-(scalef/2)+margin,transformY(bx[z]+xPos, hy[z], z)-(scalef/2)+margin,scalef-margin,scalef-margin))
             {
                 System.out.println("GAME OVER");
-
                 objStopwatch.gameEnds = true;
-
             }
+            if 
         }
 
         //Your car:
@@ -327,7 +326,7 @@ public class Track extends HComponent implements UserEventListener {
         tim+=2;
         if (rand.nextInt(10)==1) //random enemy car
         {
-            cars[(carCount+1)%cars.length] = (new car(lanes[rand.nextInt(3)],rand.nextFloat(),0,rand.nextInt(5)));
+            cars[(carCount+1)%cars.length] = (new car(lanes[rand.nextInt(3)],0.5f,0,rand.nextInt(5)));
             carCount++;
         }
         for (int i = 0; i < cars.length; i++)
