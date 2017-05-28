@@ -63,6 +63,7 @@ public class Track extends HComponent implements UserEventListener {
     Image orangecar = this.getToolkit().getImage("orangeCar-middle.png");
     Image redcar = this.getToolkit().getImage("redCar-middle.png");
     Image yellowcar = this.getToolkit().getImage("yellowCar-middle.png");
+    Image palmtree = this.getToolkit().getImage("palmTree.png");
 
     MediaTracker mtrack;
     
@@ -84,6 +85,7 @@ public class Track extends HComponent implements UserEventListener {
         mtrack.addImage(orangecar,3);
         mtrack.addImage(redcar,4);
         mtrack.addImage(yellowcar,5);
+        mtrack.addImage(palmtree,6);
         
         try
         {
@@ -153,7 +155,8 @@ public class Track extends HComponent implements UserEventListener {
         }
         
         for (int z=79;z>=5;z--) //this for-loop is used to draw every line of our road
-        {
+        {   
+            
             g.setColor(Color.GREEN); //draws the grass
             int x[]=new int[5];
         
@@ -223,6 +226,15 @@ public class Track extends HComponent implements UserEventListener {
                     g.fillPolygon(x,y,5);
                 }
             }
+            
+            if ((z+tim)%9==0)
+            {
+                int scalew = 940/z;
+                int scaleh = 2220/z;
+                g.drawImage(palmtree,transformX(100+bx[z], hy[z]-222, z),transformY(100+bx[z], hy[z]-222, z),-scalew,scaleh, this);
+                g.drawImage(palmtree,transformX(600+bx[z], hy[z]-222, z),transformY(600+bx[z], hy[z]-222, z),scalew,scaleh, this);
+            }
+            
         }
         
         /*int curposbegin=kcounter;
