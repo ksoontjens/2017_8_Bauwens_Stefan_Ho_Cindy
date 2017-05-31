@@ -1,20 +1,107 @@
 Signature-Version: 1.0
 Created-By: 1.6.0_16 (Sun Microsystems Inc.)
 BDJ-Signature-Version: 1.0
-SHA1-Digest-Manifest: zeHMNW5y3k2v+NiYoxHwRNFwgso=
+SHA1-Digest-Manifest: RVDCAkZBvhdC39x3VvIHwrjyFMY=
+
+Name: hellotvxlet/GameOver.class
+SHA1-Digest: fLwAYaKN091b+TeanqzjGsKWn9U=
+
+Name: orangeCar-right.png
+SHA1-Digest: zEExAZ+m8syqwx3jZulglYCy2e4=
 
 Name: hellotvxlet/HelloTVXlet.class
-SHA1-Digest: JsH+XNSAtY50meYOzy8J8Esz/Fk=
+SHA1-Digest: 80k3SqA9ezXKvgeLLzrlpJZ1myg=
 
-Name: hellotvxlet/HelloTVXlet$1.class
-SHA1-Digest: jL4rl+dtvgbj4VErj8qjkXfGCe4=
+Name: orangeCar-left.png
+SHA1-Digest: liJp3LOue2K7UU246prlCvQWAyA=
 
-Name: hellotvxlet/ChessBoard.class
-SHA1-Digest: S3uoO7lJcs0Rz3Y6JEyhypMtR24=
+Name: greenCar-middle.png
+SHA1-Digest: rsrwMvGuilTqdPGkhf198iu5qnM=
+
+Name: pinkCar-left.png
+SHA1-Digest: Ha8eC0Z0sSXUWyu56KjqzaRuRrk=
+
+Name: bush.png
+SHA1-Digest: +FyJZpW3twnr0fXWHnm5Zo40l+4=
+
+Name: redCar-middle.png
+SHA1-Digest: hFhlbr3FkWsk8jagCkmMQ9NtdQ0=
 
 Name: hellotvxlet/bluray.HelloTVXlet.perm
 SHA1-Digest: 84ZO/rYCyy0JStmaLbg1GDVEFhQ=
 
+Name: palmTree.png
+SHA1-Digest: Zo5lT4cr9eVnhLU47grul8H7/io=
+
 Name: hellotvxlet/MyTimerTask.class
-SHA1-Digest: g1r1xHgCG6BJjrPKJ3xgaSH2E88=
+SHA1-Digest: JItuUu0dhJppCgv9jCVQMizQmN4=
+
+Name: pinkCar-middle.png
+SHA1-Digest: nT9dr85p9g8LfbM+V+4hggXrr/8=
+
+Name: stage.png
+SHA1-Digest: seO9E+TJA7n6DSqPbrF9LFhPR5Q=
+
+Name: hellotvxlet/Stopwatch.class
+SHA1-Digest: h3XfuWNRYSVV1Z8u2EYjV+5kv6w=
+
+Name: skyBackground.png
+SHA1-Digest: 5IMWa40OTG3rxjxWOWn5UUCX8Ig=
+
+Name: redCar-left.png
+SHA1-Digest: TVQ8RjGY0P5Hd50GlPr6SxaOBbM=
+
+Name: lap.png
+SHA1-Digest: BHKvRJByvOA+lw1cC1qpw0yaZ88=
+
+Name: yellowCar-right.png
+SHA1-Digest: h61lOmIQG3KqIVnT2sUryXsfxJo=
+
+Name: yellowCar-middle.png
+SHA1-Digest: qZswdMeuOlCpN6N+/Vsw0Bev0Nk=
+
+Name: blueCar-right.png
+SHA1-Digest: srRB/kfsxTdUXX/7+dLP/DnM9ds=
+
+Name: hellotvxlet/car.class
+SHA1-Digest: F1Hv4gHOJugLlI7t3vZO1mTJxkI=
+
+Name: hellotvxlet/Background.class
+SHA1-Digest: w5cvKfAbdBRNVdmD290EcrELSO4=
+
+Name: blueCar-left.png
+SHA1-Digest: o1D3sLHu9lrsqdOea1FI0Bxv1DI=
+
+Name: greenCar-right.png
+SHA1-Digest: HgTwsxUtrk80zGyTxay/gleGmGQ=
+
+Name: redCar-right.png
+SHA1-Digest: W4he5sVIihDV3jumrBYc+jiZA2E=
+
+Name: greenCar-left.png
+SHA1-Digest: Shvhfc8aihYjme6kZ76Jys4U/Dg=
+
+Name: hellotvxlet/BackgroundImage.class
+SHA1-Digest: m7tBibeFLbP5mStAf2dzG0wDkdI=
+
+Name: blueCar-middle.png
+SHA1-Digest: XEZWVpPco78cgFXukGxQB9tHVRc=
+
+Name: orangeCar-middle.png
+SHA1-Digest: mjod1efEAbu+z28BZ7xYj0fpTGQ=
+
+Name: yellowCar-left.png
+SHA1-Digest: iXMvqYuP69VDXJVNWLEfXse0iLU=
+
+Name: Thumbs.db
+SHA1-Digest: 5nTGAJ6hMSxZ1A8Q35bEydzzqkU=
+
+Name: pinkCar-right.png
+SHA1-Digest: OwbOOzztp+6Xl9w24yNMkRL+rUw=
+
+Name: hellotvxlet/Track.class
+SHA1-Digest: MRwXdAdeeCIiEmYOjJSK3eKaUkQ=
+
+Name: skyBackground.m2v
+SHA1-Digest: 3pEjjPgcVYLQqb4e5lRYprhSNAM=
 
