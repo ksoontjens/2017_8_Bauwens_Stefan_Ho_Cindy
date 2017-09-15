@@ -1,6 +1,6 @@
 # Outrun 
 
-This is a small schoolproject written in java for MHP.
+This is a small schoolproject written in Java for MHP.
 
 By Cindy Ho & Stefan Bauwens
 <br>
@@ -14,3 +14,4 @@ alt="Screenshot from the gameplay video of Outrun" width="500" height="300" bord
 <br>
 
 ![Example](pic.png?raw=true "Outrun")
+
