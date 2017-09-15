@@ -1,7 +1,5 @@
 # Outrun 
 
-
-Outrun like game by Cindy Ho and Stefan Bauwens
 This is a small schoolproject written in java for MHP.
 
 By Cindy Ho & Stefan Bauwens
