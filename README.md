@@ -12,5 +12,7 @@ By Cindy Ho & Stefan Bauwens
 <img src="https://user-images.githubusercontent.com/22680257/30482853-faa1e576-9a24-11e7-9c42-707855abc16f.png" 
 alt="Screenshot from the gameplay video of Outrun" width="500" height="300" border="10"></a>
 <br>
+<br>
+<br>
 
 ![Example](pic.png?raw=true "Outrun")
